@@ -200,7 +200,7 @@ apt-get install manila-api manila-scheduler python-manilaclient
  
 ### 3. Hoàn tất cấu hình file **manila.conf**
 
-  - Trong thẻ [DEFAULT], cấu hình truy cập vào RabbitMQ message queue
+- Trong thẻ [DEFAULT], cấu hình truy cập vào RabbitMQ message queue
  
    ```
    [DEFAULT]
@@ -208,7 +208,7 @@ apt-get install manila-api manila-scheduler python-manilaclient
    ```
    Thay **RABBIT_PASS** bằng mật khẩu của bạn
    
-   - Trong thẻ [DEFAULT], thêm các tham số cấu hình 
+- Trong thẻ [DEFAULT], thêm các tham số cấu hình 
    
    ```
    [DEFAULT]
@@ -217,7 +217,7 @@ apt-get install manila-api manila-scheduler python-manilaclient
    rootwrap_config = /etc/manila/rootwrap.conf
    api_paste_config = /etc/manila/api-paste.ini
    ```
-   - Trong thẻ [DEFAULT] và [keystone_authtoken],[oslo_concurrency] thêm nội dung:
+- Trong thẻ [DEFAULT] và [keystone_authtoken],[oslo_concurrency] thêm nội dung:
    ```
    [DEFAULT]
     auth_strategy = keystone
@@ -243,6 +243,7 @@ apt-get install manila-api manila-scheduler python-manilaclient
 ```
 $ su -s /bin/sh -c "manila-manage db sync" manila
 ```
+
 ## Hoàn tất việc cài đặt
 
 ### 1. Khởi động lại dịch vụ
