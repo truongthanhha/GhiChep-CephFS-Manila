@@ -6,6 +6,9 @@
 ## 1. Thực hiện trên node Controller
 
 ### 1.1. Thực hiện khởi tạo database, làm các bước sau
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) `#c5f015`
+- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) `#1589F0`
 
 - Kết nối database với user root
 ![#f03c15]
