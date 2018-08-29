@@ -186,5 +186,12 @@ $ openstack endpoint create --region RegionOne \
   +--------------+-----------------------------------------+
   ```
   
-  
+### 1.2. Cài đặt và cấu hình các thành phần
+- Cài đặt các packages:
+```
+apt-get install manila-api manila-scheduler python-manilaclient
+```
 
+- Chỉnh sửa file /etc/manila/manila.conf thêm các thông tin sau
+* abc
+* def
