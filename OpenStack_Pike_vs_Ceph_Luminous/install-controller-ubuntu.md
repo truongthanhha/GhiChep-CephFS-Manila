@@ -1,4 +1,4 @@
-#Cài đặt và cấu hình trên node Controller
+# Cài đặt và cấu hình trên node Controller
 
 ## Điều kiện kiên quyết
 ### 1. Thực hiện khởi tạo database, làm các bước sau
@@ -239,12 +239,12 @@ apt-get install manila-api manila-scheduler python-manilaclient
 
 ### 4. Thực hiện đồng bộ database 
 ```
-# su -s /bin/sh -c "manila-manage db sync" manila
+$ su -s /bin/sh -c "manila-manage db sync" manila
 ```
 ## Hoàn tất việc cài đặt
 ### 1. Khởi động lại dịch vụ
 
 ```
-# service manila-scheduler restart
-# service manila-api restart
+$ service manila-scheduler restart
+$ service manila-api restart
 ```
