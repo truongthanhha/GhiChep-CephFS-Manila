@@ -1,4 +1,7 @@
 
+::: warning
+*here be dragons*
+:::
 
 # I. Mô hình cài đặt
 ![SetupModel](../Images/setup_model.png)
@@ -21,12 +24,12 @@ $ mysql -u root -p
 CREATE DATABASE manila;
 ```
 - Gán quyền truy cập manila database:
-
-	GRANT ALL PRIVILEGES ON manila.* TO 'manila'@'localhost' \
-	IDENTIFIED BY 'MANILA_DBPASS';
-	GRANT ALL PRIVILEGES ON manila.* TO 'manila'@'%' \
-	IDENTIFIED BY 'MANILA_DBPASS';
-
+```
+GRANT ALL PRIVILEGES ON manila.* TO 'manila'@'localhost' \
+  IDENTIFIED BY 'MANILA_DBPASS';
+GRANT ALL PRIVILEGES ON manila.* TO 'manila'@'%' \
+  IDENTIFIED BY 'MANILA_DBPASS';
+```
 Thay MANILA_DBPASS bằng mật khẩu phù hợp
 - Thoát khỏi database client
 
@@ -37,19 +40,19 @@ $ source admin-openrc.sh
 
 ### 1.3. Khởi tạo service
 - Khởi tạo **manila**  user:
-
-	$ openstack user create --domain default --password-prompt manila
-	User Password:
-	Repeat User Password:
-	+-----------+----------------------------------+
-	| Field     | Value                            |
-	+-----------+----------------------------------+
-	| domain_id | e0353a670a9e496da891347c589539e9 |
-	| enabled   | True                             |
-	| id        | 83a3990fc2144100ba0e2e23886d8acc |
-	| name      | manila                           |
-	+-----------+----------------------------------+
-
+```
+$ openstack user create --domain default --password-prompt manila
+User Password:
+Repeat User Password:
++-----------+----------------------------------+
+| Field     | Value                            |
++-----------+----------------------------------+
+| domain_id | e0353a670a9e496da891347c589539e9 |
+| enabled   | True                             |
+| id        | 83a3990fc2144100ba0e2e23886d8acc |
+| name      | manila                           |
++-----------+----------------------------------+
+```
 - Thêm **admin** role cho **manila** user
 ```
 $ openstack role add --project service --user manila admin
