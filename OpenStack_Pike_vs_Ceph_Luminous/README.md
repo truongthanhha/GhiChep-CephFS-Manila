@@ -208,5 +208,37 @@ apt-get install manila-api manila-scheduler python-manilaclient
    [DEFAULT]
    transport_url = rabbit://openstack:RABBIT_PASS@controller
    ```
+   Thay **RABBIT_PASS** bằng mật khẩu của bạn
+   
+   - Trong thẻ [DEFAULT], thêm các tham số cấu hình 
+   
+   ```
+   [DEFAULT]
+   default_share_type = default_share_type
+   share_name_template = share-%s
+   rootwrap_config = /etc/manila/rootwrap.conf
+   api_paste_config = /etc/manila/api-paste.ini
+   ```
+   - Trong thẻ [DEFAULT] và [keystone_authtoken],[oslo_concurrency] thêm nội dung:
+   [DEFAULT]
+    auth_strategy = keystone
 
+   [keystone_authtoken]
+   memcached_servers = controller:11211
+   auth_uri = http://controller:5000
+   auth_url = http://controller:35357
+   auth_type = password
+   project_domain_id = default
+   user_domain_id = default
+   project_name = service
+   username = manila
+   password = MANILA_PASS
+   my_ip = 172.16.68.90
+   [oslo_concurrency]
+   lock_path = /var/lock/manila
+
+- Thực hiện đồng bộ database 
+```
+# su -s /bin/sh -c "manila-manage db sync" manila
+```
 
