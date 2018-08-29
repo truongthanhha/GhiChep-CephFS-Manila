@@ -194,14 +194,14 @@ apt-get install manila-api manila-scheduler python-manilaclient
 
 - Chỉnh sửa file /etc/manila/manila.conf thêm các thông tin sau
 
- - Cấu hình truy cập database trong phần **[database]** :
+  - Cấu hình truy cập database trong phần **[database]** :
 ```
 [database]
 connection = mysql+pymysql://manila:MANILA_DBPASS@controller/manila
 ```
 Thay **MANILA_DBPASS** bằng mật khẩu của bạn
 
- - Trong thẻ [DEFAULT], cấu hình truy cập vào RabbitMQ message queue
+  - Trong thẻ [DEFAULT], cấu hình truy cập vào RabbitMQ message queue
  
  ```
  [DEFAULT]
