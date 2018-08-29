@@ -59,6 +59,10 @@ Repeat User Password:
 ```
 $ openstack role add --project service --user manila admin
 ```
+>**Chú ý**: Lệnh trên không có output
+
+    block fsdsd
+	
 - Khởi tạo **manila** và **manilav2** service 
 ```
 $ openstack service create --name manila \
