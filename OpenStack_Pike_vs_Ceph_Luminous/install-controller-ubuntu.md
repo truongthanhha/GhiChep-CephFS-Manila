@@ -236,12 +236,15 @@ apt-get install manila-api manila-scheduler python-manilaclient
 
    [oslo_concurrency]
    lock_path = /var/lock/manila
+   
 
 ### 4. Thực hiện đồng bộ database 
+
 ```
 $ su -s /bin/sh -c "manila-manage db sync" manila
 ```
 ## Hoàn tất việc cài đặt
+
 ### 1. Khởi động lại dịch vụ
 
 ```
