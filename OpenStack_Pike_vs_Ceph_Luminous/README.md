@@ -220,6 +220,7 @@ apt-get install manila-api manila-scheduler python-manilaclient
    api_paste_config = /etc/manila/api-paste.ini
    ```
    - Trong thẻ [DEFAULT] và [keystone_authtoken],[oslo_concurrency] thêm nội dung:
+   ```
    [DEFAULT]
     auth_strategy = keystone
 
