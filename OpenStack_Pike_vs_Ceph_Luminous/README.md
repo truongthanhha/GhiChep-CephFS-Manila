@@ -193,6 +193,7 @@ apt-get install manila-api manila-scheduler python-manilaclient
 ```
 
 - Chỉnh sửa file /etc/manila/manila.conf thêm các thông tin sau
+
  - Cấu hình truy cập database trong phần **[database]** :
 ```
 [database]
