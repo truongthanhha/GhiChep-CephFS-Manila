@@ -8,11 +8,11 @@
 ### 1.1. Thực hiện khởi tạo database, làm các bước sau
 
 - Kết nối database với user root
-<font color="green">
+![#f03c15]
 ```
 $ mysql -u root -p
 ```
-</font>
+`#f03c15`
 
 - Khởi tạo database *manila*:
 ```
