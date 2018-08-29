@@ -6,20 +6,13 @@
 ## 1. Thực hiện trên node Controller
 
 ### 1.1. Thực hiện khởi tạo database, làm các bước sau
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
-- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) `#c5f015`
-- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) `#1589F0`
 
-<p style='color:red'>This is some red text.</p>
-<font color="red">This is some text!</font>
-These are <b style='color:red'>red words</b>
+<span style=“color:red;”> text </span>
 
 - Kết nối database với user root
-![#f03c15]
 ```
 $ mysql -u root -p
 ```
-`#f03c15`
 
 - Khởi tạo database *manila*:
 ```
@@ -60,8 +53,6 @@ Repeat User Password:
 $ openstack role add --project service --user manila admin
 ```
 >**Chú ý**: Lệnh trên không có output
-
-    block fsdsd
 	
 - Khởi tạo **manila** và **manilav2** service 
 ```
