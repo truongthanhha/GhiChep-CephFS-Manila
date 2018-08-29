@@ -8,12 +8,14 @@
 ### 1.1. Thực hiện khởi tạo database, làm các bước sau
 
 - Kết nối database với user root
+<font color="green">
 ```
 $ mysql -u root -p
 ```
+</font>
 - Khởi tạo database *manila*:
 ```
-$ mysql -u root -p
+CREATE DATABASE manila;
 ```
 - Gán quyền truy cập manila database:
 ```
