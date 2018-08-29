@@ -12,7 +12,7 @@ $ yum install openstack-manila-share python2-PyMySQL
 [database]
 connection = mysql://manila:MANILA_DBPASS@controller/manila
 ```
-Thay ***MANILA_DBPASS** bằng mật khẩu mà bạn đã chọn 
+Thay **MANILA_DBPASS** bằng mật khẩu mà bạn đã chọn khi phần quyền truy cập database **manila**
 
 ## 4. Hoàn thành việc cấu hình file **manila.conf**
 
