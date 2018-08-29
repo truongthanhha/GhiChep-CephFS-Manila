@@ -1,4 +1,7 @@
-### 1.1. Thực hiện khởi tạo database, làm các bước sau
+#Cài đặt và cấu hình trên node Controller
+
+## Điều kiện kiên quyết
+### 1. Thực hiện khởi tạo database, làm các bước sau
 
 <span style=“color:red;”> text </span>
 
@@ -21,12 +24,12 @@ GRANT ALL PRIVILEGES ON manila.* TO 'manila'@'%' \
 Thay **MANILA_DBPASS** bằng mật khẩu phù hợp
 - Thoát khỏi database client
 
-### 1.2. Export các thông tin xác thực 
+### 2. Export các thông tin xác thực 
 ```
 $ source admin-openrc.sh
 ```
 
-### 1.3. Khởi tạo service
+### 3. Khởi tạo service
 - Khởi tạo **manila**  user:
 ```
 $ openstack user create --domain default --password-prompt manila
@@ -77,7 +80,7 @@ $ openstack service create --name manilav2 \
   
 ```
 
-- Khởi tạo Shared File Systems API endpoints
+### 4. Khởi tạo Shared File Systems API endpoints
 ```
 $ openstack endpoint create --region RegionOne \
   share public http://controller:8786/v1/%\(tenant_id\)s
@@ -179,13 +182,13 @@ $ openstack endpoint create --region RegionOne \
   +--------------+-----------------------------------------+
   ```
   
-### 1.4 Cài đặt và cấu hình các thành phần
-- Cài đặt các packages:
+## Cài đặt và cấu hình các thành phần
+### 1.  Cài đặt các packages:
 ```
 apt-get install manila-api manila-scheduler python-manilaclient
 ```
 
-- Chỉnh sửa file /etc/manila/manila.conf thêm các thông tin sau
+### 2. Chỉnh sửa file /etc/manila/manila.conf thêm các thông tin sau
 
   - Cấu hình truy cập database trong phần **[database]** :
   
@@ -193,7 +196,9 @@ apt-get install manila-api manila-scheduler python-manilaclient
   [database]
   connection = mysql+pymysql://manila:MANILA_DBPASS@controller/manila
   ```
-  Thay **MANILA_DBPASS** bằng mật khẩu của bạn
+ Thay **MANILA_DBPASS** bằng mật khẩu của bạn
+ 
+### 3. Hoàn tất cấu hình file **manila.conf**
 
   - Trong thẻ [DEFAULT], cấu hình truy cập vào RabbitMQ message queue
  
@@ -232,11 +237,12 @@ apt-get install manila-api manila-scheduler python-manilaclient
    [oslo_concurrency]
    lock_path = /var/lock/manila
 
-- Thực hiện đồng bộ database 
+### 4. Thực hiện đồng bộ database 
 ```
 # su -s /bin/sh -c "manila-manage db sync" manila
 ```
-### 1.5 Khởi động lại dịch vụ
+## Hoàn tất việc cài đặt
+### 1. Khởi động lại dịch vụ
 
 ```
 # service manila-scheduler restart
