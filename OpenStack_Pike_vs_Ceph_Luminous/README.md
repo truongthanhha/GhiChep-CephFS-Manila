@@ -196,17 +196,17 @@ apt-get install manila-api manila-scheduler python-manilaclient
 
   - Cấu hình truy cập database trong phần **[database]** :
   
-```
-[database]
-connection = mysql+pymysql://manila:MANILA_DBPASS@controller/manila
-```
-Thay **MANILA_DBPASS** bằng mật khẩu của bạn
+  ```
+  [database]
+  connection = mysql+pymysql://manila:MANILA_DBPASS@controller/manila
+  ```
+  Thay **MANILA_DBPASS** bằng mật khẩu của bạn
 
   - Trong thẻ [DEFAULT], cấu hình truy cập vào RabbitMQ message queue
  
- ```
- [DEFAULT]
- transport_url = rabbit://openstack:RABBIT_PASS@controller
- ```
+   ```
+   [DEFAULT]
+   transport_url = rabbit://openstack:RABBIT_PASS@controller
+   ```
 
 
