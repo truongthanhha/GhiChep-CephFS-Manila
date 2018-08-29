@@ -13,6 +13,7 @@
 $ mysql -u root -p
 ```
 </font>
+
 - Khởi tạo database *manila*:
 ```
 CREATE DATABASE manila;
