@@ -1,9 +1,11 @@
 # Cấu hình CephFS native share backend trong file manila.conf
 
-## 1. Thêm tham số **enabled_share_protocols **
+## 1. Thêm tham số **enabled_share_protocols ** trong file /etc/manila/manila.conf ở server cài manila-api service
 ```
 enabled_share_protocols = NFS,CIFS,CEPHFS
 ```
+Sau đó restart lại manila-api
+
 ## 2. Enable backend 
 
 ```
@@ -44,4 +46,23 @@ manila share-export-location-list cephnativeshare1
 ```
 Thông tin sẽ nhận được **{mon ip addr:port}[,{mon ip addr:port}]:{path to be mounted}**
 
+
+# Cho phép truy cập share 
+
+- Cho phép Ceph ID alice có quyền truy cập share sử dụng cephx
+
+```
+manila access-allow cephnativeshare1 cephx alice
+```
+
+- Lấy về assess/secret key của alice
+
+```
+manila access-list cephnativeshare1
++--------------------------------------+-------------+-----------+--------------+--------+------------------------------------------+----------------------------+----------------------------+
+| id                                   | access_type | access_to | access_level | state  | access_key                               | created_at                 | updated_at                 |
++--------------------------------------+-------------+-----------+--------------+--------+------------------------------------------+----------------------------+----------------------------+
+| 010dc080-ce5b-4277-bbbb-36317ff32fa9 | cephx       | alice     | rw           | active | AQDShntbXw5uCxAAqdhLz1kjAltSFSDxOlFEoQ== | 2018-08-30T06:57:54.000000 | 2018-08-30T06:57:55.000000 |
++--------------------------------------+-------------+-----------+--------------+--------+------------------------------------------+----------------------------+----------------------------+
+```
 
