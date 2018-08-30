@@ -1,6 +1,7 @@
 # Cấu hình CephFS native share backend trong file manila.conf
 
-## 1. Thêm tham số **enabled_share_protocols ** trong file /etc/manila/manila.conf ở server cài manila-api service
+## 1. Enable protocol 
+Thêm tham số **enabled_share_protocols ** trong file /etc/manila/manila.conf ở server cài manila-api service
 ```
 enabled_share_protocols = NFS,CIFS,CEPHFS
 ```
@@ -26,7 +27,7 @@ cephfs_enable_snapshots = false
 ```
 Tham số **driver-handles-share-servers** được thiết lập giá trị **False** nếu không có **share-servers**
 
-sử dụng tính năng snapshot, thiết lập giá trị **cephfs_enable_snapshots ** là **True**
+sử dụng tính năng snapshot, thiết lập giá trị **cephfs_enable_snapshots** là **True**
 
 Sử dụng native Ceph protocol, thiết lập tham số **cephfs_protocol_helper_type** giá trị **CEPHFS**
 
@@ -91,6 +92,7 @@ manila access-list cephnativeshare1
 ```
 Thực hiện mount
 
+```
 sudo ceph-fuse /mnt \
 --id=alice \
 --conf=/etc/ceph/ceph.conf \
@@ -98,6 +100,8 @@ sudo ceph-fuse /mnt \
 --client-mountpoint=/volumes/_nogroup/84f67aff-a1ef-49f6-80fe-346a1f73056c
 ```
 Kết quả
+
+```
 [root@vm-centos7 ~]# df -h
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/vda1        16G  1.8G   14G  12% /
@@ -111,3 +115,4 @@ ceph-fuse       1.0G     0  1.0G   0% /mnt
 [root@vm-centos7 ~]# cat /mnt/thanhha
 thanhha
 [root@vm-centos7 ~]#
+```

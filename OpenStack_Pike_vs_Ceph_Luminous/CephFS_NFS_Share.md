@@ -1,6 +1,7 @@
 # Cấu hình CephFS native share backend trong file manila.conf
 
-## 1. Thêm tham số **enabled_share_protocols ** trong file /etc/manila/manila.conf ở server cài manila-api service
+## 1. Enable protocol 
+Thêm tham số **enabled_share_protocols ** trong file /etc/manila/manila.conf ở server cài manila-api service
 ```
 enabled_share_protocols = NFS,CIFS,CEPHFS
 ```
