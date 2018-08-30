@@ -3,8 +3,6 @@
 ## Điều kiện kiên quyết
 ### 1. Thực hiện khởi tạo database, làm các bước sau
 
-<span style=“color:red;”> text </span>
-
 - Kết nối database với user root
 ```
 $ mysql -u root -p
