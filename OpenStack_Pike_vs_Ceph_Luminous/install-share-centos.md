@@ -49,3 +49,30 @@ password = MANILA_PASS
 lock_path = /var/lib/manila/tmp
 ```
 Thay **MANILA_DBPASS** bằng mật khẩu bạn chọn khi tạo user manila
+
+
+# CephFS Driver
+Có 2 tùy chọn sử dụng CephFS Native shares và sử dụng CephFS NFS shares
+
+- Nếu máy ảo sử dụng CephFS sử dụng giao thức của Ceph, truy cập được quản lý bởi cơ chế xác thực cephx của Ceph. 
+Nếu User yêu cầu truy cập, Ceph sẽ khởi tạo Ceph auth ID và secret key tương ứng
+. Để biết thêm về phương thức Client truy cập share khởi tạo bởi driver tham khảo thêm
+trong tại liệu của Ceph http://docs.ceph.com/docs/master/cephfs/.
+
+>**Chú ý** phía máy ảo nếu sử dụng mount của kernel thay vì sử dụng FUSE, thiết lập size limits có thể
+không được áp dụng
+
+- Nếu máy ảo truy cập CephFS thông qua NFS, NFS-Ganesha server sẽ làm trung gian truy cập
+vào CephFS. 
+
+## Các tính năng
+
+- Khởi tạo/xóa share
+- Đối với CephFS native
+  - CephFS native chỉ hỗ trợ truy cập thông qua cơ chế xác thực của **cephx**
+  - **read-only** chỉ hỗ trợ bản từ bản manila Newton trở đi
+  - **read-write** hỗ trợ từ bản Mitaka trở đi
+  
+- Đối với truy cập share thông qua NFS
+  - Truy cập thông qua giao thức NFS chỉ hỗ trợ bởi qua **ip**
+  - **read-only** và **read-write** chỉ hỗ trợ từ bản Pike trở đi
